@@ -95,4 +95,12 @@ function ShowFahrenheit(event) {
 let Fahrenheit = document.querySelector("#Fahrenheit");
 Fahrenheit.addEventListener("click", ShowFahrenheit);
 
-searchCity("Freiburg");
+function ShowCelsius(event) {
+  event.preventDefault();
+  let TemperatureElement = document.querySelector("#temperature");
+  TemperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+let Celisius = document.querySelector("#Celsius");
+Celsius.addEventListener("click", ShowCelsius);
+
+searchCity("New York");
