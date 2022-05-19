@@ -79,3 +79,13 @@ let currentlocation = document.querySelector("#Currentlocation");
 currentlocation.addEventListener("submit", getcurrentlocation);
 
 searchCity("Freiburg");
+
+function Fahrenheit(event) {
+  event.preventDefault();
+  let TemperaturElement = document.querySelector("#temperature");
+  let FahrenheitTemperature = (TemperatureElement.innerHTML * 9) / 5 + 32;
+  TemperatureElement = Math.round(FahrenheitTemperature);
+}
+
+let Fahrenheit = document.querySelector("#Fahrenheit");
+Fahrenheit.addEventListener("click", ShowFahrenheit);
