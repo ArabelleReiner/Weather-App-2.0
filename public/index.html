@@ -1,0 +1,91 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      ;
+      rel="stylesheet"
+      ;
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      ;
+      crossorigin="anonymous"
+      ;
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body class="container">
+    <div class="card">
+      <form class="Field" id="form" action="">
+        <input
+          type="search"
+          id="InputField"
+          autofocus="on"
+          autocomplete="off"
+          placeholder="Enter your City"
+        />
+        <input type="submit" id="Signup" value="Sign up" />
+        <input type="submit" id="Current" value="Current-location" />
+        <div class="Today">
+          <h3 id="Today">Today</h3>
+          <h2 id="City"></h2>
+          <h4 id="temperature">°C</h4>
+          <div>Precipitation: <span id="Precipitation"></span> %</div>
+          <div>Humidity: <span id="Humidity"></span> %</div>
+          <div>Wind: <span id="Wind"></span> km/h</div>
+          <div id="description">cloudy</div>
+        </div>
+        <span class="Icon">☁</span>
+        <hr />
+        <div class="row">
+          <h3>Weather of the next few days</h3>
+          <div class="col-2">
+            <div>Tomorrow</div>
+            <div>21°C</div>
+            <div>0%</div>
+            <div>15 km/h</div>
+            <div>0 L/qm</div>
+            <div>sunny</div>
+          </div>
+          <div class="col-2">
+            <div>Tuesday</div>
+            <div>19°C</div>
+            <div>10%</div>
+            <div>30 km/h</div>
+            <div>1 L/qm</div>
+            <div>cloudy</div>
+          </div>
+          <div class="col-2">
+            <div>Wendsday</div>
+            <div>18°C</div>
+            <div>0%</div>
+            <div>10 km/h</div>
+            <div>0 L/qm</div>
+            <div>sunny</div>
+          </div>
+          <div class="col-2">
+            <div>Thursday</div>
+            <div>19°C</div>
+            <div>90%</div>
+            <div>20 km/h</div>
+            <div>10 L/qm</div>
+            <div>cloudy</div>
+          </div>
+          <div class="col-2">
+            <div>Friday</div>
+            <div>19°C</div>
+            <div>90%</div>
+            <div>20 km/h</div>
+            <div>10 L/qm</div>
+            <div>cloudy</div>
+          </div>
+        </div>
+      </form>
+      <a href="https://github.com/ArabelleReiner/Weather-App">GitHub</a>
+    </div>
+  </body>
+  <script src="/src/index.js"></script>
+</html>
