@@ -40,6 +40,7 @@ function getWeather(response) {
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
   );
+  document.querySelector("#Precipitation").innerHTML = response.data.name;
   document.querySelector("#Humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#Wind").innerHTML = Math.round(
     response.data.wind.speed
@@ -80,9 +81,9 @@ currentlocation.addEventListener("submit", getcurrentlocation);
 
 searchCity("Freiburg");
 
-function Fahrenheit(event) {
+function ShowFahrenheit(event) {
   event.preventDefault();
-  let TemperaturElement = document.querySelector("#temperature");
+  let TemperatureElement = document.querySelector("#temperature");
   let FahrenheitTemperature = (TemperatureElement.innerHTML * 9) / 5 + 32;
   TemperatureElement = Math.round(FahrenheitTemperature);
 }
