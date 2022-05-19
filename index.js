@@ -46,7 +46,10 @@ function getWeather(response) {
     response.data.wind.speed
   );
   document.querySelector("#description").innerHTML = response.data.weather.main;
+
+  celsiusTemperature = response.data.main.temp;
 }
+
 function searchCity(city) {
   let ApiKey = "d41959f4e39709a61cab47f6141bbe79";
   let ApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${ApiKey}`;
@@ -66,6 +69,7 @@ function handlesubmit(event) {
   let city = document.querySelector("#InputField").value;
   searchCity(city);
 }
+
 let fieldsearch = document.querySelector("#form");
 fieldsearch.addEventListener("search", handlesubmit);
 let fieldclick = document.querySelector("#form");
@@ -78,5 +82,17 @@ function getcurrentlocation(event) {
 
 let currentlocation = document.querySelector("#Currentlocation");
 currentlocation.addEventListener("submit", getcurrentlocation);
+
+let celsiusTemperature = null;
+
+function ShowFahrenheit(event) {
+  event.preventDefault();
+  let TemperatureElement = document.querySelector("#temperature");
+  let FahrenheitTemperature = (celsiusTemperature.innerHTML * 9) / 5 + 32;
+  TemperatureElement = Math.round(FahrenheitTemperature);
+}
+
+let Fahrenheit = document.querySelector("#Fahrenheit");
+Fahrenheit.addEventListener("click", ShowFahrenheit);
 
 searchCity("Freiburg");
