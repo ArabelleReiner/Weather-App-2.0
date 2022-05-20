@@ -33,38 +33,29 @@ let currentMinutes = currentTime.getMinutes();
 let dat = `${currentDay}, ${currentDate}.${currentMonth}.${currentYear}, ${currentHour}:${currentMinutes}`;
 Today.innerHTML = dat;
 
-function displayTemperature(response) {
-  let temperatureElement = document.querySelector("#temperature");
-  let cityElement = document.querySelector("#City");
-  let descriptionElement = document.querySelector("#Description");
-  let humidityElement = document.querySelector("#Humidity");
-  let windElement = document.querySelector("#Wind");
-  let dateElement = document.querySelector("#Today");
+celsiusTemperature = response.data.main.temp;
+//show city
+function getWeather(response) {
+  document.querySelector("#City").innerHTML = response.data.name;
+  document.querySelector("#Today").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celsiusTemperature);
+  //document.querySelector("#Precipitation").innerHTML = response.data.name;
+  document.querySelector("#Humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#Wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  document.querySelector("#Description").innerHTML =
+    response.data.weather[0].description;
   let iconElement = document.querySelector("#Icon");
-
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-  cityElement.innerHTML = response.data.name;
-  descriptionElement.innerHTML = response.data.weather[0].description;
-  humidityElement.innerHTML = response.data.main.humidity;
-  windElement.innerHTML = Math.round(response.data.wind.speed);
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
     "http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
-
-//show city
-//function getWeather(response) {
-//document.querySelector("#City").innerHTML = response.data.name;
-//document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
-//document.querySelector("#Precipitation").innerHTML = response.data.name;
-//document.querySelector("#Humidity").innerHTML = response.data.main.humidity;
-//document.querySelector("#Wind").innerHTML = Math.round(response.data.wind.speed);
-//document.querySelector("#description").innerHTML = response.data.weather.main;
-//}
-celsiusTemperature = response.data.main.temp;
 
 function searchCity(city) {
   let ApiKey = "d41959f4e39709a61cab47f6141bbe79";
@@ -96,7 +87,7 @@ function getcurrentlocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-let currentlocation = document.querySelector("#Current-location");
+let currentlocation = document.querySelector("#Current");
 currentlocation.addEventListener("submit", getcurrentlocation);
 
 function ShowFahrenheit(event) {
