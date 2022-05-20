@@ -80,7 +80,7 @@ function getcurrentlocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-let currentlocation = document.querySelector("#Current");
+let currentlocation = document.querySelector("#Currentlocation");
 currentlocation.addEventListener("submit", getcurrentlocation);
 
 let celsiusTemperature = null;
