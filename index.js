@@ -36,10 +36,10 @@ Today.innerHTML = dat;
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#City");
-  let descriptionElement = document.querySelector("#description");
+  let descriptionElement = document.querySelector("#Description");
   let humidityElement = document.querySelector("#Humidity");
   let windElement = document.querySelector("#Wind");
-  let dateElement = document.querySelector("#Date");
+  let dateElement = document.querySelector("#Today");
   let iconElement = document.querySelector("#Icon");
 
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
