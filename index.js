@@ -113,8 +113,17 @@ searchCity("New York");
 
 function displayForecast(){
   let forecastElement = document.querySelector("#forecast");
-  let forcastHTML='<div class="row">';
-  days.forEach(day){
+   let days = [
+  "Sun",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat",
+];
+  let forcastHTML=`<div class="row>`;
+  days.forEach(day) {
     forecastHTML= forecastHTML + `
     <div class="weather-forecast">${day}</div>
           <h3>Weather of the next few days</h3>
