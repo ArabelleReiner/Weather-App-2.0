@@ -34,15 +34,15 @@ let dat = `${currentDay}, ${currentDate}.${currentMonth}.${currentYear}, ${curre
 Today.innerHTML = dat;
 
 //Current Weather
-celsiusTemperature = response.data.main.temp;
 
 function getWeather(response) {
   document.querySelector("#City").innerHTML = response.data.name;
   document.querySelector("#Today").innerHTML = formatDate(
     response.data.dt * 1000
   );
-  document.querySelector("#temperature").innerHTML =
-    Math.round(celsiusTemperature);
+  document.querySelector("#temperature").innerHTML = Math.round(
+    response.data.main.temp
+  );
   //document.querySelector("#Precipitation").innerHTML = response.data.name;
   document.querySelector("#Humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#Wind").innerHTML = Math.round(
