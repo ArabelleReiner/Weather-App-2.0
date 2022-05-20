@@ -92,7 +92,6 @@ function getcurrentlocation(event) {
 function ShowFahrenheit(event) {
   event.preventDefault();
   let TemperatureElement = document.querySelector("#temperature");
-
   Celsius.classList.remove("active");
   Fahrenheit.classList.add("active");
   let FahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
@@ -109,7 +108,7 @@ function ShowCelsius(event) {
 
 let celsiusTemperature = null;
 
-let Celisius = document.querySelector("#Celsius");
+let Celsius = document.querySelector("#Celsius");
 Celsius.addEventListener("click", ShowCelsius);
 
 let Fahrenheit = document.querySelector("#Fahrenheit");
