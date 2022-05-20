@@ -114,22 +114,26 @@ Fahrenheit.addEventListener("click", ShowFahrenheit);
 
 searchCity("New York");
 
-function displayForecast() {
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let forcastHTML = `<div class="row>`;
-  days.forEach(function (day) {
+  forecast.forEach(function (ForecastDay) {
     forecastHTML =
       forecastHTML +
-      `
-    <div class="weather-forecast">${day}</div>
+      `<div class="weather-forecast">${ForecastDay.dt}}</div>
           <h3>Weather of the next few days</h3>
           <div class="col-2 Rahmen">
             <div>Tomorrow</div>
-            <div>☁</div>
-            <span>21°C</span>
+          <img
+          src="http://openweathermap.org/img/wn/50d@2x.png"
+          alt=""
+          width="42"
+        />
+            <span>${ForecastDay.temp.min}</span>
             <span>|</span>
-            <span>25°C</span>
+            <span>${ForecastDay.temp.max}</span>
             <div>sunny</div>
           </div>
           </div>
