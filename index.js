@@ -33,8 +33,9 @@ let currentMinutes = currentTime.getMinutes();
 let dat = `${currentDay}, ${currentDate}.${currentMonth}.${currentYear}, ${currentHour}:${currentMinutes}`;
 Today.innerHTML = dat;
 
+//Current Weather
 celsiusTemperature = response.data.main.temp;
-//show city
+
 function getWeather(response) {
   document.querySelector("#City").innerHTML = response.data.name;
   document.querySelector("#Today").innerHTML = formatDate(
@@ -49,12 +50,6 @@ function getWeather(response) {
   );
   document.querySelector("#Description").innerHTML =
     response.data.weather[0].description;
-  let iconElement = document.querySelector("#Icon");
-  iconElement.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchCity(city) {
@@ -66,7 +61,7 @@ function searchCity(city) {
 function handlesubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#InputField").value;
-  searchCity(city);
+  searchCity(city.value);
 }
 
 function searchLocation(position) {
