@@ -52,7 +52,7 @@ function getWeather(response) {
   let iconElement = document.querySelector("#Icon");
   iconElement.setAttribute(
     "src",
-    "http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png"
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
@@ -81,14 +81,13 @@ let fieldsearch = document.querySelector("#form");
 fieldsearch.addEventListener("search", handlesubmit);
 let fieldclick = document.querySelector("#form");
 fieldclick.addEventListener("click", handlesubmit);
+let currentlocation = document.querySelector("#Current");
+currentlocation.addEventListener("submit", getcurrentlocation);
 
 function getcurrentlocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
-
-let currentlocation = document.querySelector("#Current");
-currentlocation.addEventListener("submit", getcurrentlocation);
 
 function ShowFahrenheit(event) {
   event.preventDefault();
