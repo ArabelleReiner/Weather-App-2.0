@@ -114,15 +114,23 @@ Fahrenheit.addEventListener("click", ShowFahrenheit);
 
 searchCity("New York");
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let forcastHTML = `<div class="row>`;
-  forecast.forEach(function (ForecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="weather-forecast">${ForecastDay.dt}}</div>
+  forecast.forEach(function (ForecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="weather-forecast">${ForecastDay.dt}}</div>
           <h3>Weather of the next few days</h3>
           <div class="col-2 Rahmen">
             <div>Tomorrow</div>
@@ -131,16 +139,17 @@ function displayForecast(response) {
           alt=""
           width="42"
         />
-            <span>${ForecastDay.temp.min}</span>
+            <span>${Math.round(ForecastDay.temp.min)}</span>
             <span>|</span>
-            <span>${ForecastDay.temp.max}</span>
+            <span>${Math.round(ForecastDay.temp.max)}</span>
             <div>sunny</div>
           </div>
           </div>
         </div>`;
 
-    forecastHTML = forecastHTML + `</div>`;
-    forecastElement.innerHTML = forcastHTML;
+      forecastHTML = forecastHTML + `</div>`;
+      forecastElement.innerHTML = forcastHTML;
+    }
   });
 }
 
