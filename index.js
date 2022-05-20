@@ -110,3 +110,28 @@ let Fahrenheit = document.querySelector("#Fahrenheit");
 Fahrenheit.addEventListener("click", ShowFahrenheit);
 
 searchCity("New York");
+
+function displayForecast(){
+  let forecastElement = document.querySelector("#forecast");
+  let forcastHTML='<div class="row">';
+  days.forEach(day){
+    forecastHTML= forecastHTML + `
+    <div class="weather-forecast">${day}</div>
+          <h3>Weather of the next few days</h3>
+          <div class="col-2 Rahmen">
+            <div>Tomorrow</div>
+            <div>☁</div>
+            <span>21°C</span>
+            <span>|</span>
+            <span>21°C</span>
+            <div>sunny</div>
+          </div>
+          </div>
+        </div>`;
+
+  forecastHTML= forecastHTML + `</div>`
+  forecastElement.innerHTML=forcastHTML;
+
+}
+}
+displayForecast()
