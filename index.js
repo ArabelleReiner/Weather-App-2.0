@@ -52,6 +52,8 @@ function getWeather(response) {
     response.data.weather[0].description;
 }
 
+//Search City
+
 function searchCity(city) {
   let ApiKey = "d41959f4e39709a61cab47f6141bbe79";
   let ApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${ApiKey}`;
@@ -64,6 +66,7 @@ function handlesubmit(event) {
   searchCity(city.value);
 }
 
+//Search current location
 function searchLocation(position) {
   let ApiKeyposition = "d41959f4e39709a61cab47f6141bbe79";
   let latitude = position.coord.latitude;
@@ -76,7 +79,7 @@ let fieldsearch = document.querySelector("#form");
 fieldsearch.addEventListener("search", handlesubmit);
 let fieldclick = document.querySelector("#form");
 fieldclick.addEventListener("click", handlesubmit);
-let currentlocation = document.querySelector("#Current");
+let currentlocation = document.querySelector("#Currentlocation");
 currentlocation.addEventListener("submit", getcurrentlocation);
 
 function getcurrentlocation(event) {
@@ -111,20 +114,14 @@ Fahrenheit.addEventListener("click", ShowFahrenheit);
 
 searchCity("New York");
 
-function displayForecast(){
+function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
-   let days = [
-  "Sun",
-  "Mon",
-  "Tue",
-  "Wed",
-  "Thu",
-  "Fri",
-  "Sat",
-];
-  let forcastHTML=`<div class="row>`;
-  days.forEach(day) {
-    forecastHTML= forecastHTML + `
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forcastHTML = `<div class="row>`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
     <div class="weather-forecast">${day}</div>
           <h3>Weather of the next few days</h3>
           <div class="col-2 Rahmen">
@@ -138,9 +135,8 @@ function displayForecast(){
           </div>
         </div>`;
 
-  forecastHTML= forecastHTML + `</div>`
-  forecastElement.innerHTML=forcastHTML;
-
+    forecastHTML = forecastHTML + `</div>`;
+    forecastElement.innerHTML = forcastHTML;
+  });
 }
-}
-displayForecast()
+displayForecast();
