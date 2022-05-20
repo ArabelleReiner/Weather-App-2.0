@@ -86,30 +86,30 @@ function getcurrentlocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-function ShowFahrenheit(event) {
-  event.preventDefault();
-  let TemperatureElement = document.querySelector("#temperature");
-  Celsius.classList.remove("active");
-  Fahrenheit.classList.add("active");
-  let FahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  FahrenheitTemperature.innerHTML = Math.round(FahrenheitTemperature);
-}
+//function ShowFahrenheit(event) {
+// event.preventDefault();
+// let TemperatureElement = document.querySelector("#temperature");
+// Celsius.classList.remove("active");
+// Fahrenheit.classList.add("active");
+//let FahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+//FahrenheitTemperature.innerHTML = Math.round(FahrenheitTemperature);
+//}
 
-function ShowCelsius(event) {
-  event.preventDefault();
-  Celsius.classList.add("active");
-  Fahrenheit.classList.remove("active");
-  let TemperatureElement = document.querySelector("#temperature");
-  TemperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
+//function ShowCelsius(event) {
+//  event.preventDefault();
+//  Celsius.classList.add("active");
+//  Fahrenheit.classList.remove("active");
+//  let TemperatureElement = document.querySelector("#temperature");
+//  TemperatureElement.innerHTML = Math.round(celsiusTemperature);
+//}
 
-let celsiusTemperature = null;
+//let celsiusTemperature = null;
 
-let Celsius = document.querySelector("#Celsius");
-Celsius.addEventListener("click", ShowCelsius);
+//let Celsius = document.querySelector("#Celsius");
+//Celsius.addEventListener("click", ShowCelsius);
 
-let Fahrenheit = document.querySelector("#Fahrenheit");
-Fahrenheit.addEventListener("click", ShowFahrenheit);
+//let Fahrenheit = document.querySelector("#Fahrenheit");
+//Fahrenheit.addEventListener("click", ShowFahrenheit);
 
 searchCity("New York");
 
