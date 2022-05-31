@@ -36,15 +36,15 @@ function formatDate(timestamp) {
 Today.innerHTML = formatDate(new Date());
 
 //Current Weather
+celsiusTemperature = response.data.main.temp;
 
 function getWeather(response) {
   document.querySelector("#City").innerHTML = response.data.name;
   document.querySelector("#Today").innerHTML = formatDate(
     response.data.dt * 1000
   );
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celsiusTemperature);
   //document.querySelector("#Precipitation").innerHTML = response.data.name;
   document.querySelector("#Humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#Wind").innerHTML = Math.round(
