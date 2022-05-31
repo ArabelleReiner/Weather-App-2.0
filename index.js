@@ -1,37 +1,39 @@
-//currentDate
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "Mai",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-let currentTime = new Date();
-let currentDate = currentTime.getDate();
-let currentDay = days[currentTime.getDay()];
-let currentMonth = months[currentTime.getMonth()];
-let currentYear = currentTime.getFullYear();
-let currentHour = currentTime.getHours();
-let currentMinutes = currentTime.getMinutes();
+function formatDate(timestamp) {
+  //currentDate
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "Mai",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let currentTime = new Date(timestamp);
+  let currentDate = currentTime.getDate();
+  let currentDay = days[currentTime.getDay()];
+  let currentMonth = months[currentTime.getMonth()];
+  let currentYear = currentTime.getFullYear();
+  let currentHour = currentTime.getHours();
+  let currentMinutes = currentTime.getMinutes();
 
-let dat = `${currentDay}, ${currentDate}.${currentMonth}.${currentYear}, ${currentHour}:${currentMinutes}`;
-Today.innerHTML = dat;
+  return `${currentDay}, ${currentDate}.${currentMonth}.${currentYear}, ${currentHour}:${currentMinutes}`;
+}
+Today.innerHTML = formatDate(new Date());
 
 //Current Weather
 
@@ -62,7 +64,7 @@ function searchCity(city) {
 function handlesubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#InputField").value;
-  searchCity(city.value);
+  searchCity(city);
 }
 
 //Search current location
@@ -78,7 +80,7 @@ let fieldsearch = document.querySelector("#form");
 fieldsearch.addEventListener("search", handlesubmit);
 let fieldclick = document.querySelector("#form");
 fieldclick.addEventListener("click", handlesubmit);
-let currentlocation = document.querySelector("#Currentlocation");
+let currentlocation = document.querySelector("#Current");
 currentlocation.addEventListener("submit", getcurrentlocation);
 
 function getcurrentlocation(event) {
@@ -158,4 +160,3 @@ function getForecast(coordinates) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
-displayForecast();
