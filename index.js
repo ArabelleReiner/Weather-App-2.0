@@ -36,15 +36,16 @@ function formatDate(timestamp) {
 Today.innerHTML = formatDate(new Date());
 
 //Current Weather
-celsiusTemperature = response.data.main.temp;
 
 function getWeather(response) {
+  celsiusTemperature = response.data.main.temp;
   document.querySelector("#City").innerHTML = response.data.name;
   document.querySelector("#Today").innerHTML = formatDate(
     response.data.dt * 1000
   );
-  document.querySelector("#temperature").innerHTML =
-    Math.round(celsiusTemperature);
+  document.querySelector("#temperature").innerHTML = Math.round(
+    response.data.main.temp
+  );
   //document.querySelector("#Precipitation").innerHTML = response.data.name;
   document.querySelector("#Humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#Wind").innerHTML = Math.round(
@@ -56,7 +57,6 @@ function getWeather(response) {
 
 //Search City
 function searchCity(city) {
-  city.preventDefault();
   let ApiKey = "d41959f4e39709a61cab47f6141bbe79";
   let ApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${ApiKey}`;
   axios.get(ApiUrl).then(getWeather);
