@@ -31,7 +31,7 @@ function formatDate(timestamp) {
   let currentHour = currentTime.getHours();
   let currentMinutes = currentTime.getMinutes();
   if (currentMinutes < 10) {
-    CurrentMinutes = `0${currentMinutes}`;
+    currentMinutes = `0${currentMinutes}`;
   }
 
   return `${currentDay}, ${currentDate}.${currentMonth}.${currentYear}, ${currentHour}:${currentMinutes}`;
