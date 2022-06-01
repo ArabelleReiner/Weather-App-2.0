@@ -30,6 +30,9 @@ function formatDate(timestamp) {
   let currentYear = currentTime.getFullYear();
   let currentHour = currentTime.getHours();
   let currentMinutes = currentTime.getMinutes();
+  if (currentMinutes < 10) {
+    CurrentMinutes = `0${minutes}`;
+  }
 
   return `${currentDay}, ${currentDate}.${currentMonth}.${currentYear}, ${currentHour}:${currentMinutes}`;
 }
