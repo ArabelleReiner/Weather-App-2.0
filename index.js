@@ -39,7 +39,7 @@ function formatDate(timestamp) {
 Today.innerHTML = formatDate(new Date());
 
 //Current Weather
-let celsiusTemperature = response.data.main.temp;
+
 function getWeather(response) {
   celsiusTemperature = response.data.main.temp;
   document.querySelector("#City").innerHTML = response.data.name;
