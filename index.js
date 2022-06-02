@@ -39,7 +39,7 @@ function formatDate(timestamp) {
 Today.innerHTML = formatDate(new Date());
 
 //Current Weather
-
+let celsiusTemperature = response.data.main.temp;
 function getWeather(response) {
   celsiusTemperature = response.data.main.temp;
   document.querySelector("#City").innerHTML = response.data.name;
@@ -95,6 +95,7 @@ searchCity("New York");
 
 function ShowFahrenheit(event) {
   event.preventDefault();
+  let celsiusTemperature = response.data.main.temp;
   let TemperatureElement = document.querySelector("#temperature");
   Celsius.classList.remove("active");
   Fahrenheit.classList.add("active");
