@@ -98,7 +98,7 @@ function ShowFahrenheit(event) {
   Celsius.classList.remove("active");
   Fahrenheit.classList.add("active");
   let FahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  FahrenheitTemperature.innerHTML = Math.round(FahrenheitTemperature);
+  TemperatureElement.innerHTML = Math.round(FahrenheitTemperature);
 }
 
 function ShowCelsius(event) {
@@ -110,6 +110,9 @@ function ShowCelsius(event) {
 }
 
 let celsiusTemperature = null;
+
+let form = document.querySelector("#form");
+form.addEventListener("submit", handlesubmit);
 
 let Celsius = document.querySelector("#Celsius");
 Celsius.addEventListener("click", ShowCelsius);
