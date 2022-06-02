@@ -48,8 +48,8 @@
 .units {
   position: relative;
   font-size: 16px;
-  left: 16px;
+  left: 20px;
 }
-#temperature {
-  font-size: 16px;
+.temperature {
+  font-size: 24px;
 }
