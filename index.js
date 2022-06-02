@@ -72,25 +72,25 @@ function handlesubmit(event) {
 }
 
 //Search current location
-function searchLocation(position) {
-  let ApiKeyposition = "d41959f4e39709a61cab47f6141bbe79";
-  let latitude = position.coord.latitude;
-  let longitude = position.coord.longitude;
-  let ApiUrlposition = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&long=${longitude}&units=metric&appid=${ApiKeyposition}`;
-  axios.get(ApiUrlposition).then(getWeather);
-}
+//function searchLocation(position) {
+//  let ApiKeyposition = "d41959f4e39709a61cab47f6141bbe79";
+//  let latitude = position.coord.latitude;
+//  let longitude = position.coord.longitude;
+//  let ApiUrlposition = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&long=${longitude}&units=metric&appid=${ApiKeyposition}`;
+//  axios.get(ApiUrlposition).then(getWeather);
+//}
 
-let fieldsearch = document.querySelector("#form");
-fieldsearch.addEventListener("search", handlesubmit);
-let fieldclick = document.querySelector("#form");
-fieldclick.addEventListener("click", handlesubmit);
-let currentlocation = document.querySelector("#Current");
-currentlocation.addEventListener("submit", getcurrentlocation);
+//let fieldsearch = document.querySelector("#form");
+//fieldsearch.addEventListener("search", handlesubmit);
+//let fieldclick = document.querySelector("#form");
+//fieldclick.addEventListener("click", handlesubmit);
+//let currentlocation = document.querySelector("#Current");
+//currentlocation.addEventListener("submit", getcurrentlocation);
 
-function getcurrentlocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchLocation);
-}
+//function getcurrentlocation(event) {
+// event.preventDefault();
+//  navigator.geolocation.getCurrentPosition(searchLocation);
+//}
 
 function ShowFahrenheit(event) {
   event.preventDefault();
