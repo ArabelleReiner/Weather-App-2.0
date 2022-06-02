@@ -36,3 +36,17 @@
 .row {
   padding: 10px;
 }
+.active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.active:hover {
+  text-decoration: none;
+}
+
+.units {
+  position: relative;
+  font-size: 16px;
+  top: -34px;
+}

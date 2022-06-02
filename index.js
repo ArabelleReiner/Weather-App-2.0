@@ -70,6 +70,7 @@ function handlesubmit(event) {
   let city = document.querySelector("#InputField").value;
   searchCity(city);
 }
+searchCity("New York");
 
 //Search current location
 //function searchLocation(position) {
@@ -119,8 +120,6 @@ Celsius.addEventListener("click", ShowCelsius);
 
 let Fahrenheit = document.querySelector("#Fahrenheit");
 Fahrenheit.addEventListener("click", ShowFahrenheit);
-
-searchCity("New York");
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
