@@ -105,6 +105,7 @@ function ShowFahrenheit(event) {
 
 function ShowCelsius(event) {
   event.preventDefault();
+  let celsiusTemperature = response.data.main.temp;
   Celsius.classList.add("active");
   Fahrenheit.classList.remove("active");
   let TemperatureElement = document.querySelector("#temperature");
