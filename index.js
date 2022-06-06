@@ -93,35 +93,37 @@ searchCity("New York");
 //  navigator.geolocation.getCurrentPosition(searchLocation);
 //}
 
-function ShowFahrenheit(event) {
-  event.preventDefault();
-  let celsiusTemperature = response.data.main.temp;
-  let TemperatureElement = document.querySelector("#temperature");
-  Celsius.classList.remove("active");
-  Fahrenheit.classList.add("active");
-  let FahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  TemperatureElement.innerHTML = Math.round(FahrenheitTemperature);
-}
+//function ShowFahrenheit(event) {
+//event.preventDefault();
+//let celsiusTemperature = response.data.main.temp;
+//let TemperatureElement = document.querySelector("#temperature");
+//Celsius.classList.remove("active");
+//Fahrenheit.classList.add("active");
+//let FahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+//TemperatureElement.innerHTML = Math.round(FahrenheitTemperature);
+//}
 
-function ShowCelsius(event) {
-  event.preventDefault();
-  let celsiusTemperature = response.data.main.temp;
-  Celsius.classList.add("active");
-  Fahrenheit.classList.remove("active");
-  let TemperatureElement = document.querySelector("#temperature");
-  TemperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
+//function ShowCelsius(event) {
+//event.preventDefault();
+//let celsiusTemperature = response.data.main.temp;
+//Celsius.classList.add("active");
+//Fahrenheit.classList.remove("active");
+//let TemperatureElement = document.querySelector("#temperature");
+//TemperatureElement.innerHTML = Math.round(celsiusTemperature);
+//}
 
-let celsiusTemperature = null;
+//let celsiusTemperature = null;
 
-let form = document.querySelector("#form");
-form.addEventListener("submit", handlesubmit);
+//let form = document.querySelector("#form");
+//form.addEventListener("submit", handlesubmit);
 
-let Celsius = document.querySelector("#Celsius");
-Celsius.addEventListener("click", ShowCelsius);
+//let Celsius = document.querySelector("#Celsius");
+//Celsius.addEventListener("click", ShowCelsius);
 
-let Fahrenheit = document.querySelector("#Fahrenheit");
-Fahrenheit.addEventListener("click", ShowFahrenheit);
+//let Fahrenheit = document.querySelector("#Fahrenheit");
+//Fahrenheit.addEventListener("click", ShowFahrenheit);
+
+//Forecast
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -133,17 +135,19 @@ function formatDay(timestamp) {
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let forcastHTML = `<div class="row>`;
+  let forcastHTML = `<div class="row">`;
   forecast.forEach(function (ForecastDay, index) {
     if (index < 6) {
       forecastHTML =
         forecastHTML +
-        `<div class="weather-forecast">${ForecastDay.dt}}</div>
+        `<div class="weather-forecast">${formatDay(ForecastDay.dt)}}</div>
           <h3>Weather of the next few days</h3>
           <div class="col-2 Rahmen">
             <div>Tomorrow</div>
           <img
-          src="http://openweathermap.org/img/wn/50d@2x.png"
+          src="http://openweathermap.org/img/wn/${
+            ForecastDay.weather[0].icon
+          }@2x.png"
           alt=""
           width="42"
         />
@@ -154,11 +158,10 @@ function displayForecast(response) {
           </div>
           </div>
         </div>`;
-
-      forecastHTML = forecastHTML + `</div>`;
-      forecastElement.innerHTML = forcastHTML;
     }
   });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forcastHTML;
 }
 
 function getForecast(coordinates) {
