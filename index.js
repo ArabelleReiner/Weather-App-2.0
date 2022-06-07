@@ -158,8 +158,8 @@ function handlesubmit(event) {
 
 //let celsiusTemperature = null;
 
-let form = document.querySelector("#form");
-form.addEventListener("submit", handlesubmit);
+//let form = document.querySelector("#form");
+//form.addEventListener("submit", handlesubmit);
 
 //let Celsius = document.querySelector("#Celsius");
 //Celsius.addEventListener("click", ShowCelsius);
