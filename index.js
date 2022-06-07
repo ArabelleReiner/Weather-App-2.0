@@ -57,6 +57,7 @@ function getWeather(response) {
   document.querySelector("#Description").innerHTML =
     response.data.weather[0].description;
 }
+searchCity("New York");
 
 //Search City
 function searchCity(city) {
@@ -70,7 +71,6 @@ function handlesubmit(event) {
   let city = document.querySelector("#InputField").value;
   searchCity(city);
 }
-searchCity("New York");
 
 //Search current location
 //function searchLocation(position) {
