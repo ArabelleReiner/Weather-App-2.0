@@ -116,11 +116,6 @@ function handlesubmit(event) {
   searchCity(city);
 }
 
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", handleSubmit);
-
-searchCity("New York");
-
 //Search current location
 //function searchLocation(position) {
 //  let ApiKeyposition = "d41959f4e39709a61cab47f6141bbe79";
@@ -163,11 +158,13 @@ searchCity("New York");
 
 //let celsiusTemperature = null;
 
-//let form = document.querySelector("#form");
-//form.addEventListener("submit", handlesubmit);
+let form = document.querySelector("#form");
+form.addEventListener("submit", handlesubmit);
 
 //let Celsius = document.querySelector("#Celsius");
 //Celsius.addEventListener("click", ShowCelsius);
 
 //let Fahrenheit = document.querySelector("#Fahrenheit");
 //Fahrenheit.addEventListener("click", ShowFahrenheit);
+
+searchCity("New York");
