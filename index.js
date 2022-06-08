@@ -33,13 +33,11 @@ function formatDate(timestamp) {
   if (currentMinutes < 10) {
     currentMinutes = `0${currentMinutes}`;
   }
-
   return `${currentDay}, ${currentDate}.${currentMonth}.${currentYear}, ${currentHour}:${currentMinutes}`;
 }
 Today.innerHTML = formatDate(new Date());
 
 //Forecast
-
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -65,10 +63,13 @@ function displayForecast(response) {
           width="42"
         />
         <div class="weather-forecast-temperatures">
-            <span>${Math.round(forecastDay.temp.min)}</span>
+            <span class="weather-forecast-temperature-min"> ${Math.round(
+              forecastDay.temp.min
+            )}</span>
             <span>|</span>
-            <span>${Math.round(forecastDay.temp.max)}</span>
-          </div>
+            <span class="weather-forecast-temperature-max">${Math.round(
+              forecastDay.temp.max
+            )}</span>
           </div>
         </div>`;
     }
@@ -82,7 +83,6 @@ function getForecast(coordinates) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(displayForecast);
 }
-getForecast(response.data.coord);
 
 //Current Weather
 function getWeather(response) {
@@ -101,20 +101,31 @@ function getWeather(response) {
   );
   document.querySelector("#Description").innerHTML =
     response.data.weather[0].description;
+  document.querySelector("#Icon").innerHTML = iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 
 //Search City
 function searchCity(city) {
   let ApiKey = "d41959f4e39709a61cab47f6141bbe79";
-  let ApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${ApiKey}`;
+  let ApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${ApiKey}&units=metric`;
   axios.get(ApiUrl).then(getWeather);
 }
 
 function handlesubmit(event) {
   event.preventDefault();
-  let city = document.querySelector("#InputField").value;
-  searchCity(city);
+  let city = document.querySelector("#InputField");
+  searchCity(city.value);
 }
+
+let form = document.querySelector("#form");
+form.addEventListener("submit", handleSubmit);
+
+searchCity("New York");
 
 //Search current location
 //function searchLocation(position) {
@@ -166,5 +177,3 @@ function handlesubmit(event) {
 
 //let Fahrenheit = document.querySelector("#Fahrenheit");
 //Fahrenheit.addEventListener("click", ShowFahrenheit);
-
-searchCity("New York");
