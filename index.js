@@ -116,6 +116,7 @@ function searchCity(city) {
   let ApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${ApiKey}&units=metric`;
   axios.get(ApiUrl).then(getWeather);
 }
+searchCity("New York");
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -129,8 +130,6 @@ let fieldsearch = document.querySelector("#form");
 fieldsearch.addEventListener("search", handleSubmit);
 let fieldclick = document.querySelector("#form");
 fieldclick.addEventListener("click", handleSubmit);
-
-searchCity("New York");
 
 //Search current location
 //function searchLocation(position) {
