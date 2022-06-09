@@ -101,7 +101,8 @@ function getWeather(response) {
   );
   document.querySelector("#Description").innerHTML =
     response.data.weather[0].description;
-  document.querySelector("#Icon").innerHTML = iconElement.setAttribute(
+  let iconElement = document.querySelector("#Icon");
+  iconElement.innerHTML = iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
@@ -116,10 +117,10 @@ function searchCity(city) {
   axios.get(ApiUrl).then(getWeather);
 }
 
-function handlesubmit(event) {
+function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#InputField");
-  searchCity(city.value);
+  searchCity(city);
 }
 
 let form = document.querySelector("#form");
