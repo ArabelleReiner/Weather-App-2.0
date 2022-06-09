@@ -124,8 +124,6 @@ function handleSubmit(event) {
   searchCity(city);
 }
 
-let form = document.querySelector("#form");
-form.addEventListener("submit", handleSubmit);
 let fieldsearch = document.querySelector("#form");
 fieldsearch.addEventListener("search", handleSubmit);
 let fieldclick = document.querySelector("#form");
