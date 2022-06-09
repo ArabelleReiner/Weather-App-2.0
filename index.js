@@ -125,6 +125,10 @@ function handleSubmit(event) {
 
 let form = document.querySelector("#form");
 form.addEventListener("submit", handleSubmit);
+let fieldsearch = document.querySelector("#form");
+fieldsearch.addEventListener("search", handleSubmit);
+let fieldclick = document.querySelector("#form");
+fieldclick.addEventListener("click", handleSubmit);
 
 searchCity("New York");
 
@@ -141,6 +145,7 @@ searchCity("New York");
 //fieldsearch.addEventListener("search", handlesubmit);
 //let fieldclick = document.querySelector("#form");
 //fieldclick.addEventListener("click", handlesubmit);
+
 //let currentlocation = document.querySelector("#Current");
 //currentlocation.addEventListener("submit", getcurrentlocation);
 
@@ -148,6 +153,8 @@ searchCity("New York");
 // event.preventDefault();
 //  navigator.geolocation.getCurrentPosition(searchLocation);
 //}
+
+//Show Fahrenheit or Celsius
 
 //function ShowFahrenheit(event) {
 //event.preventDefault();
