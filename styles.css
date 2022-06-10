@@ -1,7 +1,7 @@
 .container {
   display: block;
   margin: 0px auto;
-  padding: 100px;
+  padding: 80px;
   background: radial-gradient(
     circle at 7.5% 24%,
     rgb(237, 161, 193) 0%,
