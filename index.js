@@ -48,7 +48,7 @@ function formatDay(timestamp) {
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let forcastHTML = `<div class="row">`;
+  let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML =
@@ -75,7 +75,7 @@ function displayForecast(response) {
     }
   });
   forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forcastHTML;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function getForecast(coordinates) {
@@ -125,10 +125,6 @@ function handleSubmit(event) {
 
 let form = document.querySelector("#form");
 form.addEventListener("submit", handleSubmit);
-//let fieldsearch = document.querySelector("#form");
-//fieldsearch.addEventListener("search", handlesubmit);
-//let fieldclick = document.querySelector("#form");
-//fieldclick.addEventListener("click", handlesubmit);
 
 searchCity("New York");
 
